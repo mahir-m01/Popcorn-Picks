@@ -1,0 +1,32 @@
+/* src/CSS/NavBar.css */
+.navbar {
+  background: linear-gradient(135deg, #2a1b46, #0d2d34);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff; /* White text */
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff; /* White text */
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #ff007f; /* Neon pink */
+}
