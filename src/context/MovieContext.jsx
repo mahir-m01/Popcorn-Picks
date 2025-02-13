@@ -7,9 +7,9 @@ export const useMovieContext = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
     const [favorites, setFavorites] = useState(() => {
-        // Retrieve from localStorage only once during initialization
+        // Ensure we always start with an array
         const storedFavs = localStorage.getItem("favorites");
-        return storedFavs ? JSON.parse(storedFavs) : null;
+        return storedFavs ? JSON.parse(storedFavs) : [];
     });
 
     useEffect(() => {
@@ -17,30 +17,22 @@ export const MovieProvider = ({ children }) => {
     }, [favorites]);
 
     const addToFavorites = (movie) => {
-        setFavorites(prev => {
-            if (!prev.some(m => m.id === movie.id)) {
-                return [...prev, movie];
-            }
-            return prev;
-        });
+        setFavorites((prev) => [...prev, movie]);
     };
 
     const removeFromFavorites = (movieId) => {
-        setFavorites(prev => prev.filter(movie => movie.id !== movieId));
+        setFavorites((prev) => prev.filter((movie) => movie.id !== movieId));
     };
 
     const isFavorite = (movieId) => {
-        return favorites.some(movie => movie.id === movieId);
+        return favorites.some((movie) => movie.id === movieId);
     };
 
-    const value = {
-        favorites,
-        addToFavorites,
-        removeFromFavorites,
-        isFavorite
-    };
-
-    return <MovieContext.Provider value={value}>{children}</MovieContext.Provider>;
+    return (
+        <MovieContext.Provider value={{ favorites, addToFavorites, removeFromFavorites, isFavorite }}>
+            {children}
+        </MovieContext.Provider>
+    );
 };
 
 MovieProvider.propTypes = {
