@@ -16,7 +16,7 @@
 .favorites-empty {
   text-align: center;
   padding: 4rem 2rem;
-  background: radial-gradient(circle, #4e1919, #3d7cf1, #1c2e45);
+  background: grey
   border-radius: 12px;
   margin: 2rem auto;
   max-width: 600px;
