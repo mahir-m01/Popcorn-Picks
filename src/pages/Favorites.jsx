@@ -5,7 +5,7 @@ import { useMovieContext } from "../context/MovieContext";
 function Favorites() {
   const { favorites } = useMovieContext();
 
-  if (favorites) {
+  if (favorites.length > 0) {
     return (
       <div className="favorites">
         <h2>Your Favorites</h2>
