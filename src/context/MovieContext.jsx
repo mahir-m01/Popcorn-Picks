@@ -9,7 +9,7 @@ export const MovieProvider = ({ children }) => {
     const [favorites, setFavorites] = useState(() => {
         // Retrieve from localStorage only once during initialization
         const storedFavs = localStorage.getItem("favorites");
-        return storedFavs ? JSON.parse(storedFavs) : [];
+        return storedFavs ? JSON.parse(storedFavs) : null;
     });
 
     useEffect(() => {
