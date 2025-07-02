@@ -1,18 +1,21 @@
 /* src/CSS/NavBar.css */
 .navbar {
-  background: linear-gradient(135deg, #2a1b46, #0d2d34);
+  background: linear-gradient(120deg, #231a2b 0%, #2d223a 60%, #3a1a2b 100%);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 16px rgba(40, 22, 54, 0.28), 0 1.5px 6px 0 rgba(181, 167, 247, 0.10);
+  backdrop-filter: blur(2px);
 }
 
 .navbar-brand {
   font-size: 1.8rem;
-  font-weight: 600;
-  color: #ffffff; /* White text */
+  font-weight: 700;
+  color: #b5a7f7;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 8px rgba(40, 22, 54, 0.22);
 }
 
 .navbar-links {
@@ -23,10 +26,12 @@
 .nav-link {
   font-size: 1rem;
   font-weight: 500;
-  color: #ffffff; /* White text */
-  transition: color 0.2s;
+  color: #e0e0e0;
+  transition: color 0.2s, text-shadow 0.2s;
+  text-shadow: 0 1px 4px rgba(40, 22, 54, 0.12);
 }
 
 .nav-link:hover {
-  color: #ff007f; /* Neon pink */
+  color: #ff5a8d;
+  text-shadow: 0 2px 8px rgba(255, 90, 141, 0.18);
 }

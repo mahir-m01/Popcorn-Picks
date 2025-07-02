@@ -2,34 +2,60 @@
   padding: 2rem;
   width: 100%;
   box-sizing: border-box;
-  background: linear-gradient(135deg, #ef4d4d, #3d7cf1 , #3c5573);
+  background: linear-gradient(120deg, #231a2b 0%, #2d223a 60%, #3a1a2b 100%);
+  /* Deep purple to dark rose gradient */
 }
 
 .favorites h2 {
   margin-bottom: 2rem;
   text-align: center;
   font-size: 2.5rem;
-  color: #ffffff;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  text-shadow: 2px 2px 8px rgba(40, 22, 54, 0.32);
 }
 
 .favorites-empty {
   text-align: center;
   padding: 4rem 2rem;
-  background: grey;
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(40, 22, 54, 0.98) 0%, rgba(58, 26, 43, 0.92) 60%, rgba(80, 40, 80, 0.88) 100%);
+  border-radius: 18px;
   margin: 2rem auto;
   max-width: 600px;
+  box-shadow: 0 8px 32px 0 rgba(40, 22, 54, 0.28), 0 2px 8px 0 rgba(181, 167, 247, 0.10);
+  border: 2px solid rgba(181, 167, 247, 0.18);
+  backdrop-filter: blur(2px);
 }
 
 .favorites-empty h2 {
   margin-bottom: 1rem;
   font-size: 2rem;
-  color: #e50914;
+  color: #b5a7f7;
 }
 
 .favorites-empty p {
-  color: #999;
+  color: #bbaed1;
   font-size: 1.2rem;
   line-height: 1.6;
+}
+
+
+@media (max-width: 768px) {
+  .movies-grid {
+    grid-template-columns: 2fr 1fr; 
+  }
+
+  .movie-card {
+    width: 100%; 
+  }
+
+  .movie-poster img {
+    width: 100%; 
+  }
+}
+
+
+@media (max-width: 768px) {
+  .favorite-btn {
+    font-size: 1.2rem; /* Adjust size for mobile */
+  }
 }
