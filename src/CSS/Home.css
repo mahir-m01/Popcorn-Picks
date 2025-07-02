@@ -119,3 +119,35 @@
     width: 100%; 
   }
 }
+
+@media (max-width: 600px) {
+  .home {
+    padding: 1rem 0.2rem;
+  }
+  .search-form {
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px #181818;
+  }
+  .search-input, .search-button {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+    border-radius: 10px;
+  }
+  .movies-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+  .movie-card {
+    border-radius: 12px;
+    padding: 0.5rem;
+  }
+  .movie-poster img {
+    border-radius: 10px 10px 0 0;
+    width: 100%;
+    max-width: 100%;
+  }
+}
