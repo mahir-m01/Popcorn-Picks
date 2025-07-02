@@ -16,11 +16,11 @@
 
 .favorites-empty {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 2.5rem 1rem;
   background: linear-gradient(135deg, rgba(40, 22, 54, 0.98) 0%, rgba(58, 26, 43, 0.92) 60%, rgba(80, 40, 80, 0.88) 100%);
   border-radius: 18px;
   margin: 2rem auto;
-  max-width: 600px;
+  max-width: 500px;
   box-shadow: 0 8px 32px 0 rgba(40, 22, 54, 0.28), 0 2px 8px 0 rgba(181, 167, 247, 0.10);
   border: 2px solid rgba(181, 167, 247, 0.18);
   backdrop-filter: blur(2px);
@@ -28,13 +28,15 @@
 
 .favorites-empty h2 {
   margin-bottom: 1rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: #b5a7f7;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .favorites-empty p {
   color: #bbaed1;
-  font-size: 1.2rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
