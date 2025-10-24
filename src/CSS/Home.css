@@ -1,11 +1,12 @@
 .home {
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
   background: linear-gradient(120deg, #231a2b 0%, #2d223a 60%, #3a1a2b 100%);
   /* Deep purple to dark rose gradient */
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
+  border-radius: 0 0 1rem 1rem;
 }
 
 .home::before {
@@ -108,7 +109,7 @@
 
 @media (max-width: 768px) {
   .movies-grid {
-    grid-template-columns: 2fr 1fr; 
+    grid-template-columns: 1fr 1fr;
   }
 
   .movie-card {
@@ -120,9 +121,9 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 480px) {
   .home {
-    padding: 1rem 0.2rem;
+    padding: 0.75rem;
   }
   .search-form {
     flex-direction: column;
@@ -137,7 +138,7 @@
     border-radius: 10px;
   }
   .movies-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     margin-top: 1rem;
   }
