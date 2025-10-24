@@ -1,7 +1,9 @@
-import MovieCard from "../MovieComponents/MovieCard"
+import MovieCard from "../Components/MovieCard"
 import { useState, useEffect } from "react";
 import '../CSS/Home.css'
 import { searchMovies , getPopularMovies } from "../services/api";
+import Footer from "../Components/Footer.jsx";
+
 function Home() {
     const [searchQuery, setSearchQuery] = useState("");
     const [movies, setMovies] = useState([]);
@@ -23,23 +25,52 @@ function Home() {
   
       loadPopularMovies();
     }, []);
-  
+
+    // Dynamic search - triggers as you type
+    useEffect(() => {
+      const performSearch = async () => {
+        if (!searchQuery.trim()) {
+          // If search is empty, load popular movies
+          try {
+            setLoading(true);
+            const popularMovies = await getPopularMovies();
+            setMovies(popularMovies);
+            setError(null);
+          } catch (err) {
+            console.log(err);
+            setError("Failed to load movies...");
+          } finally {
+            setLoading(false);
+          }
+          return;
+        }
+
+        // Perform search
+        try {
+          setLoading(true);
+          const searchResults = await searchMovies(searchQuery);
+          setMovies(searchResults);
+          setError(null);
+        } catch (err) {
+          console.log(err);
+          setError("Failed to search movies...");
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      // Debounce: wait 500ms after user stops typing
+      const timeoutId = setTimeout(() => {
+        performSearch();
+      }, 500);
+
+      // Cleanup: cancel the previous timeout if user is still typing
+      return () => clearTimeout(timeoutId);
+    }, [searchQuery]);
+
     const handleSearch = async (e) => {
       e.preventDefault();
-      if (!searchQuery.trim()) return
-      if (loading) return
-  
-      setLoading(true)
-      try {
-          const searchResults = await searchMovies(searchQuery)
-          setMovies(searchResults)
-          setError(null)
-      } catch (err) {
-          console.log(err)
-          setError("Failed to search movies...")
-      } finally {
-          setLoading(false)
-      }
+      // Search is now handled by useEffect, but keep form submission for accessibility
     };
   
     return (
@@ -68,40 +99,9 @@ function Home() {
             ))}
           </div>
         )}
-        <div
-          style={{
-            textAlign: 'center',
-            padding: '1.5rem 0',
-            marginTop: '4rem',
-            backdropFilter: 'blur(8px)',
-            color: '#333',
-            fontWeight: '500',
-            fontSize: '1rem',
-            borderTop: '1px solid rgba(0,0,0,0.05)',
-          }}
-        >
-          <h1 style={{ marginBottom: '0.5rem', color: '#b5a7f7'}}>Designed & Developed by Vetri</h1>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', fontSize: '1.4rem' }}>
-            <a
-              href="https://www.linkedin.com/in/vetriselvan-r-a238b7263"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#0077b5', textDecoration: 'none' }}
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://www.instagram.com/im.vetri"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: '#E1306C', textDecoration: 'none' }}
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
+        <Footer />
       </div>
     );
   }
   
-  export default Home; 
+  export default Home;
