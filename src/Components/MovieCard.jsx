@@ -1,5 +1,5 @@
-import { useMovieContext } from "../context/MovieContext"; 
-import '../CSS/MovieCard.css' 
+import { useMovieContext } from "../context/MovieContext";
+import '../CSS/MovieCard.css'
 import { Link } from 'react-router-dom';
 
 function MovieCard({movie}) {
@@ -12,14 +12,18 @@ function MovieCard({movie}) {
         else addToFavorites(movie)
     }
 
+    const posterUrl = movie.poster_path
+        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+        : '/assets/placeholder.svg'
+
     return (
       <Link to={`/movie/${movie.id}`} style={{ textDecoration: 'none' }}>
         <div className="movie-card">
         <div className="movie-poster">
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
+            <img src={posterUrl} alt={movie.title}/>
             <div className="movie-overlay">
-            <button className={`favorite-btn ${favorite ? "active" : ""}`} onClick={onFavoriteClick}> 
-                ♥       
+            <button className={`favorite-btn ${favorite ? "active" : ""}`} onClick={onFavoriteClick}>
+                ♥
             </button>
             </div>
         </div>
@@ -32,3 +36,4 @@ function MovieCard({movie}) {
     );
 }
 export default MovieCard
+

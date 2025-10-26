@@ -1,12 +1,9 @@
 .home {
   padding: 1.5rem;
   text-align: center;
-  background: linear-gradient(120deg, #231a2b 0%, #2d223a 60%, #3a1a2b 100%);
-  /* Deep purple to dark rose gradient */
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  border-radius: 0 0 1rem 1rem;
 }
 
 .home::before {

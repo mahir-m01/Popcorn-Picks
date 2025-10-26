@@ -6,10 +6,18 @@
     box-sizing: border-box;
 }
 
+html {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #18122b 0%, #23243a 60%, #3a1a2b 100%);
-  color: #e0e0e0; 
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: #e0e0e0;
   line-height: 1.6;
   overflow-x: hidden;
 }
